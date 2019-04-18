@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="PostgreSQL, Java, ETL, Kettle, KVM, docker">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="cn華少" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-light.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          $(e).before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout with line number.
+              return trigger.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          $(e).parent().before("<button class=\"copy button\">复制</button>");
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              // nextElementSibling is figure,highlight.
+              // And following is the sequence of Hexo's internal
+              // highlight layout without line number.
+              return trigger.nextElementSibling.firstChild;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "已复制";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "复制";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>Java_错误汇总 | cn華少 - 个人博客</title>
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">cn華少</a></h1>
+        <h2 class="subtitle">个人博客</h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/logo.png" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
+        
+        <li role="menuitem"><a href="/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
+        
+        <li role="menuitem"><a href="/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
+        
+        <li role="menuitem"><a href="/tags/"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
+        
+        <li role="menuitem"><a href="/about/"><i class="fas fa-user-edit"></i><span class="menu-text">关于</span></a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://cnhuashao.com/2019/04/18/java-error/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="cn華少">
+       <meta itemprop="description" content="我的个人博客">
+       <meta itemprop="image" content="/images/avatar.png">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="cn華少">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">Java_错误汇总</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-04-18T11:42:34+08:00">2019-04-18 11:42:34</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/error/" itemprop="url" rel="index"><span itemprop="name">error</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <h4 id="错误1、生成内存图像错误，以下为错误信息"><a href="#错误1、生成内存图像错误，以下为错误信息" class="headerlink" title="错误1、生成内存图像错误，以下为错误信息"></a>错误1、生成内存图像错误，以下为错误信息</h4><a id="more"></a>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line">HTTP Status 500 – Internal Server Error</span><br><span class="line">Type Exception Report</span><br><span class="line"></span><br><span class="line">Message An exception occurred processing [/captcha.jsp] at line [47]</span><br><span class="line"></span><br><span class="line">Description The server encountered an unexpected condition that prevented it from fulfilling the request.</span><br><span class="line"></span><br><span class="line">Exception</span><br><span class="line"></span><br><span class="line">org.apache.jasper.JasperException: An exception occurred processing [/captcha.jsp] at line [47]</span><br><span class="line"></span><br><span class="line">44: //定义图片尺寸</span><br><span class="line">45:     int width=60*this.captchaType, height=(this.captchaType==1)?16:20;</span><br><span class="line">46: //创建内存图像</span><br><span class="line">47:     BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);</span><br><span class="line">48: //获取图形上下文</span><br><span class="line">49:     Graphics g = image.getGraphics();</span><br><span class="line">50: //设定背景色</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Stacktrace:</span><br><span class="line">	org.apache.jasper.servlet.JspServletWrapper.handleJspException(JspServletWrapper.java:593)</span><br><span class="line">	org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:467)</span><br><span class="line">	org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:386)</span><br><span class="line">	org.apache.jasper.servlet.JspServlet.service(JspServlet.java:330)</span><br><span class="line">	javax.servlet.http.HttpServlet.service(HttpServlet.java:741)</span><br><span class="line">	org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)</span><br><span class="line">	org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88)</span><br><span class="line">	org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)</span><br><span class="line">	org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:343)</span><br><span class="line">	org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:260)</span><br><span class="line">	com.github.inspektr.common.web.ClientInfoThreadLocalFilter.doFilter(ClientInfoThreadLocalFilter.java:63)</span><br><span class="line">	org.springframework.session.web.http.SessionRepositoryFilter.doFilterInternal(SessionRepositoryFilter.java:167)</span><br><span class="line">	org.springframework.session.web.http.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:80)</span><br><span class="line">	org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:343)</span><br><span class="line">	org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:260)</span><br><span class="line">Root Cause</span><br><span class="line"></span><br><span class="line">javax.servlet.ServletException: java.lang.NoClassDefFoundError: Could not initialize class java.awt.image.BufferedImage</span><br><span class="line">	org.apache.jasper.runtime.PageContextImpl.handlePageException(PageContextImpl.java:667)</span><br><span class="line">	org.apache.jsp.captcha_jsp._jspService(captcha_jsp.java:282)</span><br><span class="line">	org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)</span><br><span class="line">	javax.servlet.http.HttpServlet.service(HttpServlet.java:741)</span><br><span class="line">	org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:444)</span><br><span class="line">	org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:386)</span><br><span class="line">	org.apache.jasper.servlet.JspServlet.service(JspServlet.java:330)</span><br><span class="line">	javax.servlet.http.HttpServlet.service(HttpServlet.java:741)</span><br><span class="line">	org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)</span><br><span class="line">	org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88)</span><br><span class="line">	org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)</span><br><span class="line">	org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:343)</span><br><span class="line">	org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:260)</span><br><span class="line">	com.github.inspektr.common.web.ClientInfoThreadLocalFilter.doFilter(ClientInfoThreadLocalFilter.java:63)</span><br><span class="line">	org.springframework.session.web.http.SessionRepositoryFilter.doFilterInternal(SessionRepositoryFilter.java:167)</span><br><span class="line">	org.springframework.session.web.http.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:80)</span><br><span class="line">	org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:343)</span><br><span class="line">	org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:260)</span><br><span class="line">Root Cause</span><br><span class="line"></span><br><span class="line">java.lang.NoClassDefFoundError: Could not initialize class java.awt.image.BufferedImage</span><br><span class="line">	org.apache.jsp.captcha_jsp._jspService(captcha_jsp.java:170)</span><br><span class="line">	org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)</span><br><span class="line">	javax.servlet.http.HttpServlet.service(HttpServlet.java:741)</span><br><span class="line">	org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:444)</span><br><span class="line">	org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:386)</span><br><span class="line">	org.apache.jasper.servlet.JspServlet.service(JspServlet.java:330)</span><br><span class="line">	javax.servlet.http.HttpServlet.service(HttpServlet.java:741)</span><br><span class="line">	org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)</span><br><span class="line">	org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88)</span><br><span class="line">	org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)</span><br><span class="line">	org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:343)</span><br><span class="line">	org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:260)</span><br><span class="line">	com.github.inspektr.common.web.ClientInfoThreadLocalFilter.doFilter(ClientInfoThreadLocalFilter.java:63)</span><br><span class="line">	org.springframework.session.web.http.SessionRepositoryFilter.doFilterInternal(SessionRepositoryFilter.java:167)</span><br><span class="line">	org.springframework.session.web.http.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:80)</span><br><span class="line">	org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:343)</span><br><span class="line">	org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:260)</span><br><span class="line">Note The full stack trace of the root cause is available in the server logs.</span><br></pre></td></tr></table></figure>
+<h4 id="造成原因：图形化支持问题"><a href="#造成原因：图形化支持问题" class="headerlink" title="造成原因：图形化支持问题"></a>造成原因：图形化支持问题</h4><h4 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h4><p>在tomcat启动文件bin\catalina.sh  中更改$_RUNJAVA启动参数，追加-Djava.awt.headless=true \ 这一句<br><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">shift</span><br><span class="line">   eval exec &quot;\&quot;$_RUNJAVA\&quot;&quot; &quot;\&quot;$LOGGING_CONFIG\&quot;&quot; $LOGGING_MANAGER $JAVA_OPTS $CATALINA_OPTS \</span><br><span class="line">     -D$ENDORSED_PROP=&quot;\&quot;$JAVA_ENDORSED_DIRS\&quot;&quot; \</span><br><span class="line">     -classpath &quot;\&quot;$CLASSPATH\&quot;&quot; \</span><br><span class="line">     -Djava.security.manager \</span><br><span class="line">     -Djava.security.policy==&quot;\&quot;$CATALINA_BASE/conf/catalina.policy\&quot;&quot; \</span><br><span class="line">     -Dcatalina.base=&quot;\&quot;$CATALINA_BASE\&quot;&quot; \</span><br><span class="line">     -Dcatalina.home=&quot;\&quot;$CATALINA_HOME\&quot;&quot; \</span><br><span class="line">     -Djava.io.tmpdir=&quot;\&quot;$CATALINA_TMPDIR\&quot;&quot; \</span><br><span class="line">     -Djava.awt.headless=true \</span><br><span class="line">     org.apache.catalina.startup.Bootstrap &quot;$@&quot; start</span><br><span class="line"> else</span><br></pre></td></tr></table></figure></p>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/java/" rel="tag"><i class="fas fa-tags"></i>java</a>
+        
+        <a class="post-tag button" href="/tags/jdk/" rel="tag"><i class="fas fa-tags"></i>jdk</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2019/04/18/kettle-ziyuanku/" rel="next" title="Kettle7.1创建资源库，资源库颜色灰色，没有Connect按钮解决办法"><i class="fas fa-angle-left"></i><span class="nav-title">Kettle7.1创建资源库，资源库颜色灰色，没有Connect按钮解决办法</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/2019/04/18/jetty-init/" rel="prev" title="在Ubuntu18.04 Server中安装jetty，非apt版"><span class="nav-title">在Ubuntu18.04 Server中安装jetty，非apt版</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control">
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/avatar.png" alt="cn華少">
+  
+  <h1 class="author-name">cn華少</h1>
+  <h2 class="author-description">我的个人博客</h2>
+  <div class="site-count">
+    
+    
+    
+    
+    <div class="archives-count count-block">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">10</a></div>
+    </div>
+    
+    
+    
+    <div class="categories-count count-block">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">10</a></div>
+    </div>
+    
+    
+    
+    <div class="tags-count count-block">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">9</a></div>
+    </div>
+    
+    
+    
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#错误1、生成内存图像错误，以下为错误信息"><span class="toc-text">错误1、生成内存图像错误，以下为错误信息</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#造成原因：图形化支持问题"><span class="toc-text">造成原因：图形化支持问题</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#解决方案："><span class="toc-text">解决方案：</span></a></li></ol></div>
+    </div>
+    
+    
+    
+    <hr>
+    <div class="social-link sidebar-item">
+      <div><i class="far fa-address-card"></i>社交链接<p></p></div>
+      <ul>
+        
+        <li><i class="fas fa-envelope"></i><a href="mailto:lz2392504@gmail.com" target="_blank">E-Mail</a></li>
+        
+        <li><i class="fab fa-github"></i><a href="https://github.com/cnHuaShao" target="_blank">GitHub</a></li>
+        
+        <li><i class="fab fa-weibo"></i><a href="http://cnhuashao.com/" target="_blank">个人博客</a></li>
+        
+      </ul>
+    </div>
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>友情链接</div>
+      <ul>
+        
+        <li><i class="fas fa-link"></i><a href="https://github.com/" target="_blank">GitHub</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://mozilla.github.io/nunjucks/" target="_blank">Nunjucks</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">cn華少</span><span class="year"><i class="far fa-copyright"></i>2019</span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          该博客源码托管于<i class="fab fa-github-alt"></i><a href="https://github.com/cnHuaShao/cnHuaShao.blog" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

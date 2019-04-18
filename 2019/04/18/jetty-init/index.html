@@ -133,7 +133,7 @@
     </script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>标签 | cn華少 - 个人博客</title>
+    <title>在Ubuntu18.04 Server中安装jetty，非apt版 | cn華少 - 个人博客</title>
   </head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
     
@@ -160,7 +160,7 @@
         
         <li role="menuitem"><a href="/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
         
-        <li role="menuitem"><a href="/tags/" class="current"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
+        <li role="menuitem"><a href="/tags/"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
         
         <li role="menuitem"><a href="/about/"><i class="fas fa-user-edit"></i><span class="menu-text">关于</span></a></li>
         
@@ -175,23 +175,79 @@
         <div class="main-container">
           <div class="content">
             
-<div id="tags" class="tags page">
-  <article class="article post card">
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://cnhuashao.com/2019/04/18/jetty-init/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="cn華少">
+       <meta itemprop="description" content="我的个人博客">
+       <meta itemprop="image" content="/images/avatar.png">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="cn華少">
+      </span>
+    </div>
     <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">标签</h1>
-    </header>
-    <main class="post-main">
-      <h2 class="page-counter">
+      <h1 class="post-title" itemprop="name headline">在Ubuntu18.04 Server中安装jetty，非apt版</h1>
+      <div class="post-meta">
         
-        你已经创建了 9 个标签！
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-04-18T13:47:36+08:00">2019-04-18 13:47:36</time></span>
+        </span>
         
-      </h2>
-      <div class="tags-cloud">
-        <a href="/tags/Dropwizard/" style="font-size: 16px; color: #777">Dropwizard</a> <a href="/tags/idea/" style="font-size: 32px; color: #111">idea</a> <a href="/tags/java/" style="font-size: 16px; color: #777">java</a> <a href="/tags/jdk/" style="font-size: 16px; color: #777">jdk</a> <a href="/tags/jetty/" style="font-size: 16px; color: #777">jetty</a> <a href="/tags/kettle/" style="font-size: 16px; color: #777">kettle</a> <a href="/tags/owncloud/" style="font-size: 32px; color: #111">owncloud</a> <a href="/tags/sql/" style="font-size: 16px; color: #777">sql</a> <a href="/tags/tomcat/" style="font-size: 16px; color: #777">tomcat</a>
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/jetty/" itemprop="url" rel="index"><span itemprop="name">jetty</span></a></span>
+        </span>
+        
+        
       </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <a id="more"></a>
+<p>本教程安装环境为<br>      1、Ubuntu18.04 Server系统<br>      2、JDK1.8<br>      这里提一下，在Ubuntu中是可以sudo apt-get install jetty9安装的，这个安装包是和openjdk10挂在一起，如果没有特定要求，可以直接快速安装使用。</p>
+<p>以下为安装步骤：</p>
+<p>1、创建一个安装目录<br><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /usr/jetty</span><br><span class="line">sudo chown ceshi:ceshi /usr/jetty/</span><br></pre></td></tr></table></figure></p>
+<p>2、下载jetty压缩包<br><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-distribution/9.4.11.v20180605/jetty-distribution-9.4.11.v20180605.tar.gz</span><br></pre></td></tr></table></figure></p>
+<p>3、更改目录名称<br><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv jetty-distribution-9.4.11.v20180605 jetty-9.4.11</span><br></pre></td></tr></table></figure></p>
+<p>4、创建服务启动项<br><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp jetty-9.4.11/bin/jetty.sh /etc/init.d/jetty</span><br></pre></td></tr></table></figure></p>
+<p>5、配置jetty基础参数<br><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">JAVA_HOME=/usr/java/jdk1.8.0_161</span><br><span class="line">JETTY_HOME=/usr/jetty/jetty9</span><br><span class="line">NO_START=0</span><br><span class="line">JETTY_ARGS=jetty.port=8080</span><br><span class="line">JETTY_HOST=0.0.0.0</span><br></pre></td></tr></table></figure></p>
+<p>6、启动测试<br><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service jetty start</span><br></pre></td></tr></table></figure></p>
+<p>启动无异常，则表示配置成功，如果出现问题则执行sudo service jetty status<br>另一种启动方式为：java -jar ./start.jar</p>
+
     </main>
-    <footer class="post-footer"></footer>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/jetty/" rel="tag"><i class="fas fa-tags"></i>jetty</a>
+        
+      </div>
+      
+    </footer>
   </article>
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2019/04/18/java-error/" rel="next" title="Java_错误汇总"><i class="fas fa-angle-left"></i><span class="nav-title">Java_错误汇总</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/2019/04/18/Dropwizard-init/" rel="prev" title="使用Dropwizard搭建一个Hello World"><span class="nav-title">使用Dropwizard搭建一个Hello World</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
+  
+  
 </div>
 
           </div>
@@ -251,6 +307,11 @@
 
 
   <div class="sidebar-sticky">
+    
+    
+    
+    
+    
     
     
     <hr>

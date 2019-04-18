@@ -133,7 +133,7 @@
     </script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>标签 | cn華少 - 个人博客</title>
+    <title>在IntelliJ IDEA上面进行使用svn进行版本管理 | cn華少 - 个人博客</title>
   </head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
     
@@ -160,7 +160,7 @@
         
         <li role="menuitem"><a href="/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
         
-        <li role="menuitem"><a href="/tags/" class="current"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
+        <li role="menuitem"><a href="/tags/"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
         
         <li role="menuitem"><a href="/about/"><i class="fas fa-user-edit"></i><span class="menu-text">关于</span></a></li>
         
@@ -175,23 +175,76 @@
         <div class="main-container">
           <div class="content">
             
-<div id="tags" class="tags page">
-  <article class="article post card">
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://cnhuashao.com/2019/04/18/IDEA-IntelliJ-SVN/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="cn華少">
+       <meta itemprop="description" content="我的个人博客">
+       <meta itemprop="image" content="/images/avatar.png">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="cn華少">
+      </span>
+    </div>
     <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">标签</h1>
-    </header>
-    <main class="post-main">
-      <h2 class="page-counter">
+      <h1 class="post-title" itemprop="name headline">在IntelliJ IDEA上面进行使用svn进行版本管理</h1>
+      <div class="post-meta">
         
-        你已经创建了 9 个标签！
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-04-18T13:58:22+08:00">2019-04-18 13:58:22</time></span>
+        </span>
         
-      </h2>
-      <div class="tags-cloud">
-        <a href="/tags/Dropwizard/" style="font-size: 16px; color: #777">Dropwizard</a> <a href="/tags/idea/" style="font-size: 32px; color: #111">idea</a> <a href="/tags/java/" style="font-size: 16px; color: #777">java</a> <a href="/tags/jdk/" style="font-size: 16px; color: #777">jdk</a> <a href="/tags/jetty/" style="font-size: 16px; color: #777">jetty</a> <a href="/tags/kettle/" style="font-size: 16px; color: #777">kettle</a> <a href="/tags/owncloud/" style="font-size: 32px; color: #111">owncloud</a> <a href="/tags/sql/" style="font-size: 16px; color: #777">sql</a> <a href="/tags/tomcat/" style="font-size: 16px; color: #777">tomcat</a>
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/IDEA/" itemprop="url" rel="index"><span itemprop="name">IDEA</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/IDEA/IntelliJ/" itemprop="url" rel="index"><span itemprop="name">IntelliJ</span></a></span>
+        </span>
+        
+        
       </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <h4 id="一、进行安装一款svn客户端，本次采用的是TortoiseSVN客户端。"><a href="#一、进行安装一款svn客户端，本次采用的是TortoiseSVN客户端。" class="headerlink" title="一、进行安装一款svn客户端，本次采用的是TortoiseSVN客户端。"></a>一、进行安装一款svn客户端，本次采用的是TortoiseSVN客户端。</h4><h6 id="下载地址为https-tortoisesvn-net-downloads-html"><a href="#下载地址为https-tortoisesvn-net-downloads-html" class="headerlink" title="下载地址为https://tortoisesvn.net/downloads.html"></a>下载地址为<a href="https://tortoisesvn.net/downloads.html" target="_blank" rel="noopener">https://tortoisesvn.net/downloads.html</a></h6><h6 id="开始进行安装"><a href="#开始进行安装" class="headerlink" title="开始进行安装"></a>开始进行安装</h6><p><img src="http://upload-images.jianshu.io/upload_images/5330898-9f1276b69c1b4dee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<a id="more"></a>
+<h6 id="将该工具选择，进行安装。"><a href="#将该工具选择，进行安装。" class="headerlink" title="将该工具选择，进行安装。"></a>将该工具选择，进行安装。</h6><p><img src="http://upload-images.jianshu.io/upload_images/5330898-b16c692d36048e0e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h4 id="二、打开IntelliJ-IDEA工具，进行开始进行设置。"><a href="#二、打开IntelliJ-IDEA工具，进行开始进行设置。" class="headerlink" title="二、打开IntelliJ IDEA工具，进行开始进行设置。"></a>二、打开IntelliJ IDEA工具，进行开始进行设置。</h4><h6 id="点击File——-gt-Settings…——-gt-Version-Control——-gt-Subversion——-gt-General，选择TortoiseSVN中进行"><a href="#点击File——-gt-Settings…——-gt-Version-Control——-gt-Subversion——-gt-General，选择TortoiseSVN中进行" class="headerlink" title="点击File——&gt;Settings…——&gt;Version Control——&gt;Subversion——&gt;General，选择TortoiseSVN中进行"></a>点击File——&gt;Settings…——&gt;Version Control——&gt;Subversion——&gt;General，选择TortoiseSVN中进行</h6><p><img src="http://upload-images.jianshu.io/upload_images/5330898-019a963c74303509.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5330898-9dd2d68983bf5baa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h4 id="三、开始进行选择VCS——-gt-Checkout-from-Version-Control——-gt-Subversion"><a href="#三、开始进行选择VCS——-gt-Checkout-from-Version-Control——-gt-Subversion" class="headerlink" title="三、开始进行选择VCS——&gt;Checkout from Version Control——&gt;Subversion"></a>三、开始进行选择VCS——&gt;Checkout from Version Control——&gt;Subversion</h4><p><img src="http://upload-images.jianshu.io/upload_images/5330898-3148462a0d25c4dc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h6 id="开始填写svn地址，点击OK即可选择SVN中的项目进行下载，并进行版本管控。"><a href="#开始填写svn地址，点击OK即可选择SVN中的项目进行下载，并进行版本管控。" class="headerlink" title="开始填写svn地址，点击OK即可选择SVN中的项目进行下载，并进行版本管控。"></a>开始填写svn地址，点击OK即可选择SVN中的项目进行下载，并进行版本管控。</h6><p><img src="http://upload-images.jianshu.io/upload_images/5330898-ced80cfa148924fb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+
     </main>
-    <footer class="post-footer"></footer>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/idea/" rel="tag"><i class="fas fa-tags"></i>idea</a>
+        
+      </div>
+      
+    </footer>
   </article>
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2019/04/18/tomcat-init-apr/" rel="next" title="在Ubuntu16.04 Server中安装tomcat9+jdk1.8+apr"><i class="fas fa-angle-left"></i><span class="nav-title">在Ubuntu16.04 Server中安装tomcat9+jdk1.8+apr</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/2019/04/18/IDEA-IntelliJ-init/" rel="prev" title="在Linux mint 18上安装IntelliJ IDEA开发环境"><span class="nav-title">在Linux mint 18上安装IntelliJ IDEA开发环境</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
+  
+  
 </div>
 
           </div>
@@ -251,6 +304,17 @@
 
 
   <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#一、进行安装一款svn客户端，本次采用的是TortoiseSVN客户端。"><span class="toc-text">一、进行安装一款svn客户端，本次采用的是TortoiseSVN客户端。</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-6"><a class="list-group-item toc-link" href="#下载地址为https-tortoisesvn-net-downloads-html"><span class="toc-text">下载地址为https://tortoisesvn.net/downloads.html</span></a></li><li class="toc-item toc-level-6"><a class="list-group-item toc-link" href="#开始进行安装"><span class="toc-text">开始进行安装</span></a></li><li class="toc-item toc-level-6"><a class="list-group-item toc-link" href="#将该工具选择，进行安装。"><span class="toc-text">将该工具选择，进行安装。</span></a></li></ol></li></ol><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#二、打开IntelliJ-IDEA工具，进行开始进行设置。"><span class="toc-text">二、打开IntelliJ IDEA工具，进行开始进行设置。</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-6"><a class="list-group-item toc-link" href="#点击File——-gt-Settings…——-gt-Version-Control——-gt-Subversion——-gt-General，选择TortoiseSVN中进行"><span class="toc-text">点击File——&gt;Settings…——&gt;Version Control——&gt;Subversion——&gt;General，选择TortoiseSVN中进行</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#三、开始进行选择VCS——-gt-Checkout-from-Version-Control——-gt-Subversion"><span class="toc-text">三、开始进行选择VCS——&gt;Checkout from Version Control——&gt;Subversion</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-6"><a class="list-group-item toc-link" href="#开始填写svn地址，点击OK即可选择SVN中的项目进行下载，并进行版本管控。"><span class="toc-text">开始填写svn地址，点击OK即可选择SVN中的项目进行下载，并进行版本管控。</span></a></li></ol></li></div>
+    </div>
+    
     
     
     <hr>

@@ -133,7 +133,7 @@
     </script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>标签 | cn華少 - 个人博客</title>
+    <title>使用namecheap证书进行配置htmls安全访问 | cn華少 - 个人博客</title>
   </head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh_CN" data-spy="scroll" data-target=".list-group">
     
@@ -160,7 +160,7 @@
         
         <li role="menuitem"><a href="/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
         
-        <li role="menuitem"><a href="/tags/" class="current"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
+        <li role="menuitem"><a href="/tags/"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
         
         <li role="menuitem"><a href="/about/"><i class="fas fa-user-edit"></i><span class="menu-text">关于</span></a></li>
         
@@ -175,23 +175,97 @@
         <div class="main-container">
           <div class="content">
             
-<div id="tags" class="tags page">
-  <article class="article post card">
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://cnhuashao.com/2019/04/18/owncloud-sslpeizhi/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="cn華少">
+       <meta itemprop="description" content="我的个人博客">
+       <meta itemprop="image" content="/images/avatar.png">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="cn華少">
+      </span>
+    </div>
     <header class="post-header">
-      <h1 class="post-title" itemprop="name headline">标签</h1>
-    </header>
-    <main class="post-main">
-      <h2 class="page-counter">
+      <h1 class="post-title" itemprop="name headline">使用namecheap证书进行配置htmls安全访问</h1>
+      <div class="post-meta">
         
-        你已经创建了 9 个标签！
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-04-18T13:54:13+08:00">2019-04-18 13:54:13</time></span>
+        </span>
         
-      </h2>
-      <div class="tags-cloud">
-        <a href="/tags/Dropwizard/" style="font-size: 16px; color: #777">Dropwizard</a> <a href="/tags/idea/" style="font-size: 32px; color: #111">idea</a> <a href="/tags/java/" style="font-size: 16px; color: #777">java</a> <a href="/tags/jdk/" style="font-size: 16px; color: #777">jdk</a> <a href="/tags/jetty/" style="font-size: 16px; color: #777">jetty</a> <a href="/tags/kettle/" style="font-size: 16px; color: #777">kettle</a> <a href="/tags/owncloud/" style="font-size: 32px; color: #111">owncloud</a> <a href="/tags/sql/" style="font-size: 16px; color: #777">sql</a> <a href="/tags/tomcat/" style="font-size: 16px; color: #777">tomcat</a>
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/owncloud/" itemprop="url" rel="index"><span itemprop="name">owncloud</span></a></span>
+        </span>
+        
+        
       </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <p>1、开启SSL模块</p>
+<p>$ a2enmod ssl</p>
+<p>2、启用SSL站点</p>
+<p>$ a2ensite default-ssl</p>
+<a id="more"></a>
+<p>3、加入监听端口</p>
+<p>$ sudo vim /etc/apache2/ports.conf</p>
+<p>编辑Apache端口配置，加入443端口 (HTTPS采用的443端口传输数据)</p>
+<p>　　Listen 443</p>
+<p>4、配置虚拟主机</p>
+<p>编辑default-ssl文件，加入证书对应的主机头。</p>
+<p>$ sudo vim /etc/apache2/sites-enabled/default-ssl.conf</p>
+<pre><code>ServerName extend.me
+</code></pre><p>5、配置SSL证书</p>
+<ul>
+<li>按如下配置:</li>
+</ul>
+<p>　　SSLEngine on</p>
+<p>　　SSLCertificateFile        /etc/apache2/ssl/ca.crt</p>
+<p>　　SSLCertificateKeyFile   /etc/apache2/ssl/server.key</p>
+<ul>
+<li>重新启动Apache</li>
+</ul>
+<p>$ sudo service apache2 restart</p>
+<p>SSLEngine on<br>SSLCertificateFile    /etc/ssl/certs/ssl-cert-snakeoil.pem<br>SSLCertificateKeyFile /etc/ssl/private/ssl-cert-snakeoil.key</p>
+<p>编辑器打开.htaccess文件，写入如下规则：<br>RewriteEngine on<br>RewriteCond %{SERVER_PORT} !^443$<br>RewriteCond %{REQUEST_URI} !^/tz.php<br>RewriteRule (.*) https://%{SERVER_NAME}/$1 [R]</p>
+<p>解释：<br>%{SERVER_PORT} —— 访问端口<br>%{REQUEST_URI} —— 比如如果url是 <a href="http://localhost/tz.php，则是指" target="_blank" rel="noopener">http://localhost/tz.php，则是指</a> /tz.php<br>%{SERVER_NAME} —— 比如如果url是 <a href="http://localhost/tz.php，则是指" target="_blank" rel="noopener">http://localhost/tz.php，则是指</a> localhost</p>
+<p>以上规则的意思是，如果访问的url的端口不是443，且访问页面不是tz.php，则应用RewriteRule这条规则。这样便实现了：访问了 <a href="http://localhost/index.php" target="_blank" rel="noopener">http://localhost/index.php</a> 或者 <a href="http://localhost/admin/index.php" target="_blank" rel="noopener">http://localhost/admin/index.php</a> 等页面的时候会自动跳转到 <a href="https://localhost/index.php" target="_blank" rel="noopener">https://localhost/index.php</a> 或者 <a href="https://localhost/admin/index.php，但是访问" target="_blank" rel="noopener">https://localhost/admin/index.php，但是访问</a> <a href="http://localhost/tz.php" target="_blank" rel="noopener">http://localhost/tz.php</a> 的时候就不会做任何跳转，也就是说 <a href="http://localhost/tz.php" target="_blank" rel="noopener">http://localhost/tz.php</a> 和 <a href="https://localhost/tz.php" target="_blank" rel="noopener">https://localhost/tz.php</a> 两个地址都可以访问。</p>
+
     </main>
-    <footer class="post-footer"></footer>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/owncloud/" rel="tag"><i class="fas fa-tags"></i>owncloud</a>
+        
+      </div>
+      
+    </footer>
   </article>
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2019/04/18/Dropwizard-init/" rel="next" title="使用Dropwizard搭建一个Hello World"><i class="fas fa-angle-left"></i><span class="nav-title">使用Dropwizard搭建一个Hello World</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/2019/04/18/owncloud-init/" rel="prev" title="在ubuntu16.04上安装owncloud"><span class="nav-title">在ubuntu16.04上安装owncloud</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
+  
+  
 </div>
 
           </div>
@@ -251,6 +325,11 @@
 
 
   <div class="sidebar-sticky">
+    
+    
+    
+    
+    
     
     
     <hr>
