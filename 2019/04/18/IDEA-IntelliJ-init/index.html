@@ -1,3 +1,341 @@
-<!DOCTYPE HTML><html lang="zh_CN"><head><meta name="generator" content="Hexo 3.8.0"><meta charset="UTF-8"><meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1"><meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"><meta http-equiv="Cache-Control" content="no-siteapp"><meta http-equiv="Cache-Control" content="no-transform"><meta name="renderer" content="webkit|ie-comp|ie-stand"><meta name="apple-mobile-web-app-capable" content="cn華少"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no,email=no,adress=no"><meta name="browsermode" content="application"><meta name="screen-orientation" content="portrait"><link rel="dns-prefetch" href="http://cnhuashao.com"><meta name="keywords" content="idea"><meta name="description" content="一般情况下，使用 Linux mint 的我们都是在用它的图形界面，而安装IntelliJ IDEA传统思维模式是直接打开浏览器，进行下载即可。但就是这么一个简单的流程，就导致了下载文件损坏的问..."><meta name="robots" content="all"><meta name="google" content="all"><meta name="googlebot" content="all"><meta name="verify" content="all"><title>在Linux mint 18上安装IntelliJ IDEA开发环境 | cn華少</title><link rel="alternate" href="/atom.xml" title="cn華少" type="application/atom+xml"><link rel="icon" href="/favicon/favicon.ico"><link rel="stylesheet" href="/css/bootstrap.min.css?rev=bfb15a11db0e867c05d7ebda29e0822b"><link rel="stylesheet" href="/favicons.css"><link rel="stylesheet" href="/css/style.css?rev=dbf5ddeafb163a0584debf95f4cd259a"><div class="hide"><script type="text/javascript">var cnzz_protocol="https:"==document.location.protocol?" https://":" http://";document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='"+cnzz_protocol+"s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"))</script></div></head></html><!--[if lte IE 8]><style>
+<!DOCTYPE HTML>
+<html lang="zh_CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="cn華少">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://cnhuashao.com">
+    <!--SEO-->
+
+    <meta name="keywords" content="idea">
+
+
+    <meta name="description" content="一般情况下，使用 Linux mint 的我们都是在用它的图形界面，而安装IntelliJ IDEA传统思维模式是直接打开浏览器，进行下载即可。但就是这么一个简单的流程，就导致了下载文件损坏的问...">
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+
+    <!--Title-->
+
+
+<title>在Linux mint 18上安装IntelliJ IDEA开发环境 | cn華少</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="cn華少" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/favicons.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
     html{ font-size: 1em }
-</style><![endif]--><!--[if lte IE 9]><div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div><![endif]--><body><header class="main-header" style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)"><div class="main-header-box"><a class="header-avatar" href="/" title="cn華少"><img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block"></a><div class="branding"><h2>追梦，无惧</h2></div></div></header><nav class="main-navigation"><div class="container"><div class="row"><div class="col-sm-12"><div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav"><span class="sr-only"></span><i class="fa fa-bars"></i></span> <a class="navbar-brand" href="http://cnhuashao.com">cn華少</a></div><div class="collapse navbar-collapse" id="main-menu"><ul class="menu"><li role="presentation" class="text-center"><a href="/"><i class="fa"></i> 首页</a></li><li role="presentation" class="text-center"><a href="/categories/java/"><i class="fa"></i> Java</a></li><li role="presentation" class="text-center"><a href="/categories/postgresql/"><i class="fa"></i> PostgreSQL</a></li><li role="presentation" class="text-center"><a href="/categories/工具/"><i class="fa"></i> 工具</a></li><li role="presentation" class="text-center"><a href="/archives/"><i class="fa"></i> 时间轴</a></li><li role="presentation" class="text-center"><a href="/about/"><i class="fa"></i> 关于</a></li></ul></div></div></div></div></nav><section class="content-wrap"><div class="container"><div class="row"><main class="col-md-8 main-content m-post"><p id="process"></p><article class="post"><div class="post-head"><h1 id="在Linux mint 18上安装IntelliJ IDEA开发环境">在Linux mint 18上安装IntelliJ IDEA开发环境</h1><div class="post-meta"><span class="categories-meta fa-wrap"><i class="fa fa-folder-open-o"></i> <a class="category-link" href="/categories/IDEA/">IDEA</a> <a class="category-link" href="/categories/IDEA/IntelliJ/">IntelliJ</a></span><span class="fa-wrap"><i class="fa fa-tags"></i> <span class="tags-meta"><a class="tag-link" href="/tags/idea/">idea</a></span></span><span class="fa-wrap"><i class="fa fa-clock-o"></i> <span class="date-meta">2019/04/18</span></span></div></div><div class="post-body post-content"><h6 id="一般情况下，使用-Linux-mint-的我们都是在用它的图形界面，而安装IntelliJ-IDEA传统思维模式是直接打开浏览器，进行下载即可。但就是这么一个简单的流程，就导致了下载文件损坏的问题。下面是我整理的安装步骤，如有问题，欢迎给予指出。"><a href="#一般情况下，使用-Linux-mint-的我们都是在用它的图形界面，而安装IntelliJ-IDEA传统思维模式是直接打开浏览器，进行下载即可。但就是这么一个简单的流程，就导致了下载文件损坏的问题。下面是我整理的安装步骤，如有问题，欢迎给予指出。" class="headerlink" title="一般情况下，使用 Linux mint 的我们都是在用它的图形界面，而安装IntelliJ IDEA传统思维模式是直接打开浏览器，进行下载即可。但就是这么一个简单的流程，就导致了下载文件损坏的问题。下面是我整理的安装步骤，如有问题，欢迎给予指出。"></a>一般情况下，使用 Linux mint 的我们都是在用它的图形界面，而安装IntelliJ IDEA传统思维模式是直接打开浏览器，进行下载即可。但就是这么一个简单的流程，就导致了下载文件损坏的问题。下面是我整理的安装步骤，如有问题，欢迎给予指出。</h6><p>安装环境：<br>Linux mint 18<br>JDK1.8</p><h4 id="1、Ctrl-Alt-T打开终端，使用命令"><a href="#1、Ctrl-Alt-T打开终端，使用命令" class="headerlink" title="1、Ctrl+Alt+T打开终端，使用命令"></a>1、Ctrl+Alt+T打开终端，使用命令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget https://download.jetbrains.8686c.com/idea/ideaIU-2017.2.4.tar.gz</span><br></pre></td></tr></table></figure><a id="more"></a><h6 id="开始下载。"><a href="#开始下载。" class="headerlink" title="开始下载。"></a>开始下载。</h6><p><img src="http://upload-images.jianshu.io/upload_images/5330898-33df634056d3afd9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="选区_002.png"></p><h4 id="2、下载完成后，进行效验文件的完成性，使用命令："><a href="#2、下载完成后，进行效验文件的完成性，使用命令：" class="headerlink" title="2、下载完成后，进行效验文件的完成性，使用命令："></a>2、下载完成后，进行效验文件的完成性，使用命令：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sha256sum ideaIU-2017.2.4.tar.gz</span><br></pre></td></tr></table></figure><p><img src="http://upload-images.jianshu.io/upload_images/5330898-9d6a8666ea360280.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="选区_003.png"></p><h6 id="官方值查询地址-https-download-jetbrains-com-idea-ideaIU-2017-2-4-tar-gz-sha256"><a href="#官方值查询地址-https-download-jetbrains-com-idea-ideaIU-2017-2-4-tar-gz-sha256" class="headerlink" title="官方值查询地址 https://download.jetbrains.com/idea/ideaIU-2017.2.4.tar.gz.sha256"></a>官方值查询地址 <a href="https://download.jetbrains.com/idea/ideaIU-2017.2.4.tar.gz.sha256" target="_blank" rel="noopener">https://download.jetbrains.com/idea/ideaIU-2017.2.4.tar.gz.sha256</a></h6><h6 id="其值为："><a href="#其值为：" class="headerlink" title="其值为："></a>其值为：</h6><p>952183763c239acc48a99f4b29c767aa9ab89b1f83d8dc5917e6e61952fbfcf8 *ideaIU-2017.2.4.tar.gz</p><h6 id="生成的值与其官网的进行对比。"><a href="#生成的值与其官网的进行对比。" class="headerlink" title="生成的值与其官网的进行对比。"></a>生成的值与其官网的进行对比。</h6><h6 id="这时对比发现，值一致则说明下载文件没有问题。"><a href="#这时对比发现，值一致则说明下载文件没有问题。" class="headerlink" title="这时对比发现，值一致则说明下载文件没有问题。"></a>这时对比发现，值一致则说明下载文件没有问题。</h6><h6 id="如果生成的值为以下值或其他值："><a href="#如果生成的值为以下值或其他值：" class="headerlink" title="如果生成的值为以下值或其他值："></a>如果生成的值为以下值或其他值：</h6><p>98cdc40b9b857867f6ff932d1c9da31fbb05d8e1abc38120d644036277b94911 ideaIU-2017.2.4.tar.gz</p><h6 id="生成的值与官方提供的值不一样，说明其下载的包存在问题，是损坏的。需要重新进行下载。"><a href="#生成的值与官方提供的值不一样，说明其下载的包存在问题，是损坏的。需要重新进行下载。" class="headerlink" title="生成的值与官方提供的值不一样，说明其下载的包存在问题，是损坏的。需要重新进行下载。"></a>生成的值与官方提供的值不一样，说明其下载的包存在问题，是损坏的。需要重新进行下载。</h6><p>备注：在使用浏览器下载的和从windows系统中下载后传过来的均为98cdc开头的值，说明其下载传输存在异常。有说需要直接采用二进制方式进行传输下载才可以。我试了很多遍后才成功下载，建议多试几遍。也可以安装2.3版本，然后再升级即可，貌似官网2.4的包有问题。</p><h4 id="3、成功拼配后，使用gunzip进行第一次解压"><a href="#3、成功拼配后，使用gunzip进行第一次解压" class="headerlink" title="3、成功拼配后，使用gunzip进行第一次解压:"></a>3、成功拼配后，使用gunzip进行第一次解压:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gunzip ideaIU-2017.2.4.tar.gz</span><br></pre></td></tr></table></figure><h6 id="解压出来的文件为：ideaIU-2017-2-4-tar"><a href="#解压出来的文件为：ideaIU-2017-2-4-tar" class="headerlink" title="解压出来的文件为：ideaIU-2017.2.4.tar"></a>解压出来的文件为：ideaIU-2017.2.4.tar</h6><h4 id="4、开始第二次解压，使用tar命令："><a href="#4、开始第二次解压，使用tar命令：" class="headerlink" title="4、开始第二次解压，使用tar命令："></a>4、开始第二次解压，使用tar命令：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tar -xvf ideaIU-2017.2.4.tar</span><br></pre></td></tr></table></figure><h6 id="解压出来的文件夹为：idea-IU-172-4155-36"><a href="#解压出来的文件夹为：idea-IU-172-4155-36" class="headerlink" title="解压出来的文件夹为：idea-IU-172.4155.36"></a>解压出来的文件夹为：idea-IU-172.4155.36</h6><h4 id="5、开始进行安装，进入idea-IU-172-4155-36目录的bin文件夹中。"><a href="#5、开始进行安装，进入idea-IU-172-4155-36目录的bin文件夹中。" class="headerlink" title="5、开始进行安装，进入idea-IU-172.4155.36目录的bin文件夹中。"></a>5、开始进行安装，进入idea-IU-172.4155.36目录的bin文件夹中。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd idea-IU-172.4155.36/bin/</span><br><span class="line">$ sudo ./idea.sh</span><br></pre></td></tr></table></figure><h4 id="6、出来安装页面，如果之前有配置文件，则选择其之前的配置文件，如果没有则按照下图进行选择即可。"><a href="#6、出来安装页面，如果之前有配置文件，则选择其之前的配置文件，如果没有则按照下图进行选择即可。" class="headerlink" title="6、出来安装页面，如果之前有配置文件，则选择其之前的配置文件，如果没有则按照下图进行选择即可。"></a>6、出来安装页面，如果之前有配置文件，则选择其之前的配置文件，如果没有则按照下图进行选择即可。</h4><p><img src="http://upload-images.jianshu.io/upload_images/5330898-3483aa5af7295c9d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Complete Installation_004.png"></p><h4 id="7、点击Accept同意其协议"><a href="#7、点击Accept同意其协议" class="headerlink" title="7、点击Accept同意其协议"></a>7、点击Accept同意其协议</h4><p><img src="http://upload-images.jianshu.io/upload_images/5330898-2319e9792be608fe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="IntelliJ IDEA Privacy Policy Agreement_005.png"></p><h4 id="8、进入激活页面，根据自己实际情况进行激活，请支持正版版权，这里为了演示，采用目前网上主流的破解方式进行。按下图进行选择。"><a href="#8、进入激活页面，根据自己实际情况进行激活，请支持正版版权，这里为了演示，采用目前网上主流的破解方式进行。按下图进行选择。" class="headerlink" title="8、进入激活页面，根据自己实际情况进行激活，请支持正版版权，这里为了演示，采用目前网上主流的破解方式进行。按下图进行选择。"></a>8、进入激活页面，根据自己实际情况进行激活，请支持正版版权，这里为了演示，采用目前网上主流的破解方式进行。按下图进行选择。</h4><p><img src="http://upload-images.jianshu.io/upload_images/5330898-491e7205f1f19bbf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="IntelliJ IDEA License Activation_007.png"></p><h6 id="在其地址框中输入以下地址："><a href="#在其地址框中输入以下地址：" class="headerlink" title="在其地址框中输入以下地址："></a>在其地址框中输入以下地址：</h6><p><a href="http://idea.iteblog.com/key.php" target="_blank" rel="noopener">http://idea.iteblog.com/key.php</a></p><h6 id="点击Activate进行激活。"><a href="#点击Activate进行激活。" class="headerlink" title="点击Activate进行激活。"></a>点击Activate进行激活。</h6><h4 id="8、进入风格选择页面，根据自己的喜好进行选择即可。这里如果不想自定义设置，可以点击Skip-All-and-Set-Defaults直接跳过所有设置，采用默认设置。"><a href="#8、进入风格选择页面，根据自己的喜好进行选择即可。这里如果不想自定义设置，可以点击Skip-All-and-Set-Defaults直接跳过所有设置，采用默认设置。" class="headerlink" title="8、进入风格选择页面，根据自己的喜好进行选择即可。这里如果不想自定义设置，可以点击Skip All and Set Defaults直接跳过所有设置，采用默认设置。"></a>8、进入风格选择页面，根据自己的喜好进行选择即可。这里如果不想自定义设置，可以点击Skip All and Set Defaults直接跳过所有设置，采用默认设置。</h4><p><img src="http://upload-images.jianshu.io/upload_images/5330898-a897ee026eebf2fe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Customize IntelliJ IDEA_008.png"></p><h4 id="9、选择For-all-users，防止后续其他用户无法使用该工具进行开发。"><a href="#9、选择For-all-users，防止后续其他用户无法使用该工具进行开发。" class="headerlink" title="9、选择For all users，防止后续其他用户无法使用该工具进行开发。"></a>9、选择For all users，防止后续其他用户无法使用该工具进行开发。</h4><p><img src="http://upload-images.jianshu.io/upload_images/5330898-b0f9a691de720443.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Customize IntelliJ IDEA_011.png"></p><h4 id="10、让其创建启动脚本和命令行工具，后续可通过命令的方式直接进行项目文件编辑修改。这里根据自己需要进行选择即可。"><a href="#10、让其创建启动脚本和命令行工具，后续可通过命令的方式直接进行项目文件编辑修改。这里根据自己需要进行选择即可。" class="headerlink" title="10、让其创建启动脚本和命令行工具，后续可通过命令的方式直接进行项目文件编辑修改。这里根据自己需要进行选择即可。"></a>10、让其创建启动脚本和命令行工具，后续可通过命令的方式直接进行项目文件编辑修改。这里根据自己需要进行选择即可。</h4><p><img src="http://upload-images.jianshu.io/upload_images/5330898-4de3fa799c18170b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Customize IntelliJ IDEA_012.png"></p><h4 id="11、选择需要的插件，这里采用的是默认安装，后续如有需要的到时再进行安装即可。"><a href="#11、选择需要的插件，这里采用的是默认安装，后续如有需要的到时再进行安装即可。" class="headerlink" title="11、选择需要的插件，这里采用的是默认安装，后续如有需要的到时再进行安装即可。"></a>11、选择需要的插件，这里采用的是默认安装，后续如有需要的到时再进行安装即可。</h4><p><img src="http://upload-images.jianshu.io/upload_images/5330898-742b872a712cbd1d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Customize IntelliJ IDEA_013.png"></p><h4 id="12、其他工具选择性安装即可。建议别安装ideavim工具，不然打开的文件都默认开启了insert。"><a href="#12、其他工具选择性安装即可。建议别安装ideavim工具，不然打开的文件都默认开启了insert。" class="headerlink" title="12、其他工具选择性安装即可。建议别安装ideavim工具，不然打开的文件都默认开启了insert。"></a>12、其他工具选择性安装即可。建议别安装ideavim工具，不然打开的文件都默认开启了insert。</h4><p><img src="http://upload-images.jianshu.io/upload_images/5330898-746af178d538429b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Customize IntelliJ IDEA_014.png"></p><h4 id="13、进入启动项目创建页面，这样整个安装过程就完成了。"><a href="#13、进入启动项目创建页面，这样整个安装过程就完成了。" class="headerlink" title="13、进入启动项目创建页面，这样整个安装过程就完成了。"></a>13、进入启动项目创建页面，这样整个安装过程就完成了。</h4><p><img src="http://upload-images.jianshu.io/upload_images/5330898-b5aaabbf34688005.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Welcome to IntelliJ IDEA_015.png"></p><h6 id="如有安装上面的问题，欢迎在下面进行留言交流，编写不对的地方也望各位给予指出。谢谢。"><a href="#如有安装上面的问题，欢迎在下面进行留言交流，编写不对的地方也望各位给予指出。谢谢。" class="headerlink" title="如有安装上面的问题，欢迎在下面进行留言交流，编写不对的地方也望各位给予指出。谢谢。"></a>如有安装上面的问题，欢迎在下面进行留言交流，编写不对的地方也望各位给予指出。谢谢。</h6></div><div class="reward" ontouchstart><div class="reward-wrap">赏<div class="reward-box"><span class="reward-type"><img class="alipay" src="/img/alipay.jpg"><b>支付宝打赏</b></span> <span class="reward-type"><img class="wechat" src="/img/wepay.jpg"><b>微信打赏</b></span></div></div><p class="reward-tip">赞赏是不耍流氓的鼓励</p></div><div class="post-footer"><div>转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href target="_blank">Snippet</a></div><div></div></div></article><div class="article-nav prev-next-wrap clearfix"><a href="/2019/04/18/IDEA-IntelliJ-SVN/" class="next-post btn btn-default" title="在IntelliJ IDEA上面进行使用svn进行版本管理"><span class="hidden-lg">下一篇</span> <span class="hidden-xs">在IntelliJ IDEA上面进行使用svn进行版本管理</span><i class="fa fa-angle-right fa-fw"></i></a></div><div id="comments"><div id="vcomments" class="valine"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="/assets/valine.min.js"></script><script>new Valine({av:AV,el:"#vcomments",appId:"xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz",appKey:"erIpQac4azoCmgfBB7Dl9maa",placeholder:"说点什么吧",notify:!1,verify:!1,avatar:"mm",meta:"nick,mail".split(","),pageSize:"10",path:window.location.pathname,lang:"zh_CN".toLowerCase()})</script></div></main><aside id="article-toc" role="navigation" class="col-md-4"><div class="widget"><h3 class="title">Table of Contents</h3><ol class="toc"><li class="toc-item toc-level-6"><a class="toc-link" href="#一般情况下，使用-Linux-mint-的我们都是在用它的图形界面，而安装IntelliJ-IDEA传统思维模式是直接打开浏览器，进行下载即可。但就是这么一个简单的流程，就导致了下载文件损坏的问题。下面是我整理的安装步骤，如有问题，欢迎给予指出。"><span class="toc-text">一般情况下，使用 Linux mint 的我们都是在用它的图形界面，而安装IntelliJ IDEA传统思维模式是直接打开浏览器，进行下载即可。但就是这么一个简单的流程，就导致了下载文件损坏的问题。下面是我整理的安装步骤，如有问题，欢迎给予指出。</span></a></li></ol><li class="toc-item toc-level-4"><a class="toc-link" href="#1、Ctrl-Alt-T打开终端，使用命令"><span class="toc-text">1、Ctrl+Alt+T打开终端，使用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#开始下载。"><span class="toc-text">开始下载。</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、下载完成后，进行效验文件的完成性，使用命令："><span class="toc-text">2、下载完成后，进行效验文件的完成性，使用命令：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#官方值查询地址-https-download-jetbrains-com-idea-ideaIU-2017-2-4-tar-gz-sha256"><span class="toc-text">官方值查询地址 https://download.jetbrains.com/idea/ideaIU-2017.2.4.tar.gz.sha256</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#其值为："><span class="toc-text">其值为：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#生成的值与其官网的进行对比。"><span class="toc-text">生成的值与其官网的进行对比。</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#这时对比发现，值一致则说明下载文件没有问题。"><span class="toc-text">这时对比发现，值一致则说明下载文件没有问题。</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#如果生成的值为以下值或其他值："><span class="toc-text">如果生成的值为以下值或其他值：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#生成的值与官方提供的值不一样，说明其下载的包存在问题，是损坏的。需要重新进行下载。"><span class="toc-text">生成的值与官方提供的值不一样，说明其下载的包存在问题，是损坏的。需要重新进行下载。</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、成功拼配后，使用gunzip进行第一次解压"><span class="toc-text">3、成功拼配后，使用gunzip进行第一次解压:</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#解压出来的文件为：ideaIU-2017-2-4-tar"><span class="toc-text">解压出来的文件为：ideaIU-2017.2.4.tar</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、开始第二次解压，使用tar命令："><span class="toc-text">4、开始第二次解压，使用tar命令：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#解压出来的文件夹为：idea-IU-172-4155-36"><span class="toc-text">解压出来的文件夹为：idea-IU-172.4155.36</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、开始进行安装，进入idea-IU-172-4155-36目录的bin文件夹中。"><span class="toc-text">5、开始进行安装，进入idea-IU-172.4155.36目录的bin文件夹中。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、出来安装页面，如果之前有配置文件，则选择其之前的配置文件，如果没有则按照下图进行选择即可。"><span class="toc-text">6、出来安装页面，如果之前有配置文件，则选择其之前的配置文件，如果没有则按照下图进行选择即可。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7、点击Accept同意其协议"><span class="toc-text">7、点击Accept同意其协议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8、进入激活页面，根据自己实际情况进行激活，请支持正版版权，这里为了演示，采用目前网上主流的破解方式进行。按下图进行选择。"><span class="toc-text">8、进入激活页面，根据自己实际情况进行激活，请支持正版版权，这里为了演示，采用目前网上主流的破解方式进行。按下图进行选择。</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#在其地址框中输入以下地址："><span class="toc-text">在其地址框中输入以下地址：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#点击Activate进行激活。"><span class="toc-text">点击Activate进行激活。</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8、进入风格选择页面，根据自己的喜好进行选择即可。这里如果不想自定义设置，可以点击Skip-All-and-Set-Defaults直接跳过所有设置，采用默认设置。"><span class="toc-text">8、进入风格选择页面，根据自己的喜好进行选择即可。这里如果不想自定义设置，可以点击Skip All and Set Defaults直接跳过所有设置，采用默认设置。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9、选择For-all-users，防止后续其他用户无法使用该工具进行开发。"><span class="toc-text">9、选择For all users，防止后续其他用户无法使用该工具进行开发。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10、让其创建启动脚本和命令行工具，后续可通过命令的方式直接进行项目文件编辑修改。这里根据自己需要进行选择即可。"><span class="toc-text">10、让其创建启动脚本和命令行工具，后续可通过命令的方式直接进行项目文件编辑修改。这里根据自己需要进行选择即可。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11、选择需要的插件，这里采用的是默认安装，后续如有需要的到时再进行安装即可。"><span class="toc-text">11、选择需要的插件，这里采用的是默认安装，后续如有需要的到时再进行安装即可。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#12、其他工具选择性安装即可。建议别安装ideavim工具，不然打开的文件都默认开启了insert。"><span class="toc-text">12、其他工具选择性安装即可。建议别安装ideavim工具，不然打开的文件都默认开启了insert。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#13、进入启动项目创建页面，这样整个安装过程就完成了。"><span class="toc-text">13、进入启动项目创建页面，这样整个安装过程就完成了。</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#如有安装上面的问题，欢迎在下面进行留言交流，编写不对的地方也望各位给予指出。谢谢。"><span class="toc-text">如有安装上面的问题，欢迎在下面进行留言交流，编写不对的地方也望各位给予指出。谢谢。</span></a></li></ol></li></div></aside></div></div></section><footer class="main-footer"><div class="container"><div class="row"></div></div></footer><a id="back-to-top" class="icon-btn hide"><i class="fa fa-chevron-up"></i></a><div class="copyright"><div class="container"><div class="row"><div class="col-sm-12"><div class="busuanzi"></div></div><div class="col-sm-12"><span>Copyright &copy; 2017</span> | <span>Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a></span> | <span>Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a></span></div></div></div></div><script src="/js/app.js?rev=f25479a641009e7423ae98c6f819957f"></script></body>
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="cn華少">
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> 追梦，无惧 </h2>
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://cnhuashao.com">cn華少</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/java/"><i class="fa "></i>Java</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/postgresql/"><i class="fa "></i>PostgreSQL</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/工具/"><i class="fa "></i>工具</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/about/"><i class="fa "></i>关于</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="在Linux mint 18上安装IntelliJ IDEA开发环境">
+            
+	            在Linux mint 18上安装IntelliJ IDEA开发环境
+            
+        </h1>
+        <div class="post-meta">
+    
+        <span class="categories-meta fa-wrap">
+            <i class="fa fa-folder-open-o"></i>
+            <a class="category-link" href="/categories/IDEA/">IDEA</a> <a class="category-link" href="/categories/IDEA/IntelliJ/">IntelliJ</a>
+        </span>
+    
+
+    
+        <span class="fa-wrap">
+            <i class="fa fa-tags"></i>
+            <span class="tags-meta">
+                
+                    <a class="tag-link" href="/tags/idea/">idea</a>
+                
+            </span>
+        </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2019/04/18</span>
+        </span>
+        
+    
+</div>
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h6 id="一般情况下，使用-Linux-mint-的我们都是在用它的图形界面，而安装IntelliJ-IDEA传统思维模式是直接打开浏览器，进行下载即可。但就是这么一个简单的流程，就导致了下载文件损坏的问题。下面是我整理的安装步骤，如有问题，欢迎给予指出。"><a href="#一般情况下，使用-Linux-mint-的我们都是在用它的图形界面，而安装IntelliJ-IDEA传统思维模式是直接打开浏览器，进行下载即可。但就是这么一个简单的流程，就导致了下载文件损坏的问题。下面是我整理的安装步骤，如有问题，欢迎给予指出。" class="headerlink" title="一般情况下，使用 Linux mint 的我们都是在用它的图形界面，而安装IntelliJ IDEA传统思维模式是直接打开浏览器，进行下载即可。但就是这么一个简单的流程，就导致了下载文件损坏的问题。下面是我整理的安装步骤，如有问题，欢迎给予指出。"></a>一般情况下，使用 Linux mint 的我们都是在用它的图形界面，而安装IntelliJ IDEA传统思维模式是直接打开浏览器，进行下载即可。但就是这么一个简单的流程，就导致了下载文件损坏的问题。下面是我整理的安装步骤，如有问题，欢迎给予指出。</h6><p>安装环境：<br>Linux mint 18<br>JDK1.8</p>
+<h4 id="1、Ctrl-Alt-T打开终端，使用命令"><a href="#1、Ctrl-Alt-T打开终端，使用命令" class="headerlink" title="1、Ctrl+Alt+T打开终端，使用命令"></a>1、Ctrl+Alt+T打开终端，使用命令</h4> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget https://download.jetbrains.8686c.com/idea/ideaIU-2017.2.4.tar.gz</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h6 id="开始下载。"><a href="#开始下载。" class="headerlink" title="开始下载。"></a>开始下载。</h6><p><img src="http://upload-images.jianshu.io/upload_images/5330898-33df634056d3afd9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="选区_002.png"></p>
+<h4 id="2、下载完成后，进行效验文件的完成性，使用命令："><a href="#2、下载完成后，进行效验文件的完成性，使用命令：" class="headerlink" title="2、下载完成后，进行效验文件的完成性，使用命令："></a>2、下载完成后，进行效验文件的完成性，使用命令：</h4> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sha256sum ideaIU-2017.2.4.tar.gz</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/5330898-9d6a8666ea360280.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="选区_003.png"></p>
+<h6 id="官方值查询地址-https-download-jetbrains-com-idea-ideaIU-2017-2-4-tar-gz-sha256"><a href="#官方值查询地址-https-download-jetbrains-com-idea-ideaIU-2017-2-4-tar-gz-sha256" class="headerlink" title="官方值查询地址 https://download.jetbrains.com/idea/ideaIU-2017.2.4.tar.gz.sha256"></a>官方值查询地址 <a href="https://download.jetbrains.com/idea/ideaIU-2017.2.4.tar.gz.sha256" target="_blank" rel="noopener">https://download.jetbrains.com/idea/ideaIU-2017.2.4.tar.gz.sha256</a></h6><h6 id="其值为："><a href="#其值为：" class="headerlink" title="其值为："></a>其值为：</h6><p>952183763c239acc48a99f4b29c767aa9ab89b1f83d8dc5917e6e61952fbfcf8 *ideaIU-2017.2.4.tar.gz</p>
+<h6 id="生成的值与其官网的进行对比。"><a href="#生成的值与其官网的进行对比。" class="headerlink" title="生成的值与其官网的进行对比。"></a>生成的值与其官网的进行对比。</h6><h6 id="这时对比发现，值一致则说明下载文件没有问题。"><a href="#这时对比发现，值一致则说明下载文件没有问题。" class="headerlink" title="这时对比发现，值一致则说明下载文件没有问题。"></a>这时对比发现，值一致则说明下载文件没有问题。</h6><h6 id="如果生成的值为以下值或其他值："><a href="#如果生成的值为以下值或其他值：" class="headerlink" title="如果生成的值为以下值或其他值："></a>如果生成的值为以下值或其他值：</h6><p>98cdc40b9b857867f6ff932d1c9da31fbb05d8e1abc38120d644036277b94911  ideaIU-2017.2.4.tar.gz</p>
+<h6 id="生成的值与官方提供的值不一样，说明其下载的包存在问题，是损坏的。需要重新进行下载。"><a href="#生成的值与官方提供的值不一样，说明其下载的包存在问题，是损坏的。需要重新进行下载。" class="headerlink" title="生成的值与官方提供的值不一样，说明其下载的包存在问题，是损坏的。需要重新进行下载。"></a>生成的值与官方提供的值不一样，说明其下载的包存在问题，是损坏的。需要重新进行下载。</h6><p>备注：在使用浏览器下载的和从windows系统中下载后传过来的均为98cdc开头的值，说明其下载传输存在异常。有说需要直接采用二进制方式进行传输下载才可以。我试了很多遍后才成功下载，建议多试几遍。也可以安装2.3版本，然后再升级即可，貌似官网2.4的包有问题。</p>
+<h4 id="3、成功拼配后，使用gunzip进行第一次解压"><a href="#3、成功拼配后，使用gunzip进行第一次解压" class="headerlink" title="3、成功拼配后，使用gunzip进行第一次解压:"></a>3、成功拼配后，使用gunzip进行第一次解压:</h4> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gunzip ideaIU-2017.2.4.tar.gz</span><br></pre></td></tr></table></figure>
+<h6 id="解压出来的文件为：ideaIU-2017-2-4-tar"><a href="#解压出来的文件为：ideaIU-2017-2-4-tar" class="headerlink" title="解压出来的文件为：ideaIU-2017.2.4.tar"></a>解压出来的文件为：ideaIU-2017.2.4.tar</h6><h4 id="4、开始第二次解压，使用tar命令："><a href="#4、开始第二次解压，使用tar命令：" class="headerlink" title="4、开始第二次解压，使用tar命令："></a>4、开始第二次解压，使用tar命令：</h4> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tar -xvf ideaIU-2017.2.4.tar</span><br></pre></td></tr></table></figure>
+<h6 id="解压出来的文件夹为：idea-IU-172-4155-36"><a href="#解压出来的文件夹为：idea-IU-172-4155-36" class="headerlink" title="解压出来的文件夹为：idea-IU-172.4155.36"></a>解压出来的文件夹为：idea-IU-172.4155.36</h6><h4 id="5、开始进行安装，进入idea-IU-172-4155-36目录的bin文件夹中。"><a href="#5、开始进行安装，进入idea-IU-172-4155-36目录的bin文件夹中。" class="headerlink" title="5、开始进行安装，进入idea-IU-172.4155.36目录的bin文件夹中。"></a>5、开始进行安装，进入idea-IU-172.4155.36目录的bin文件夹中。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd idea-IU-172.4155.36/bin/</span><br><span class="line">$ sudo ./idea.sh</span><br></pre></td></tr></table></figure>
+<h4 id="6、出来安装页面，如果之前有配置文件，则选择其之前的配置文件，如果没有则按照下图进行选择即可。"><a href="#6、出来安装页面，如果之前有配置文件，则选择其之前的配置文件，如果没有则按照下图进行选择即可。" class="headerlink" title="6、出来安装页面，如果之前有配置文件，则选择其之前的配置文件，如果没有则按照下图进行选择即可。"></a>6、出来安装页面，如果之前有配置文件，则选择其之前的配置文件，如果没有则按照下图进行选择即可。</h4><p><img src="http://upload-images.jianshu.io/upload_images/5330898-3483aa5af7295c9d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Complete Installation_004.png"></p>
+<h4 id="7、点击Accept同意其协议"><a href="#7、点击Accept同意其协议" class="headerlink" title="7、点击Accept同意其协议"></a>7、点击Accept同意其协议</h4><p><img src="http://upload-images.jianshu.io/upload_images/5330898-2319e9792be608fe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="IntelliJ IDEA Privacy Policy Agreement_005.png"></p>
+<h4 id="8、进入激活页面，根据自己实际情况进行激活，请支持正版版权，这里为了演示，采用目前网上主流的破解方式进行。按下图进行选择。"><a href="#8、进入激活页面，根据自己实际情况进行激活，请支持正版版权，这里为了演示，采用目前网上主流的破解方式进行。按下图进行选择。" class="headerlink" title="8、进入激活页面，根据自己实际情况进行激活，请支持正版版权，这里为了演示，采用目前网上主流的破解方式进行。按下图进行选择。"></a>8、进入激活页面，根据自己实际情况进行激活，请支持正版版权，这里为了演示，采用目前网上主流的破解方式进行。按下图进行选择。</h4><p><img src="http://upload-images.jianshu.io/upload_images/5330898-491e7205f1f19bbf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="IntelliJ IDEA License Activation_007.png"></p>
+<h6 id="在其地址框中输入以下地址："><a href="#在其地址框中输入以下地址：" class="headerlink" title="在其地址框中输入以下地址："></a>在其地址框中输入以下地址：</h6><p><a href="http://idea.iteblog.com/key.php" target="_blank" rel="noopener">http://idea.iteblog.com/key.php</a></p>
+<h6 id="点击Activate进行激活。"><a href="#点击Activate进行激活。" class="headerlink" title="点击Activate进行激活。"></a>点击Activate进行激活。</h6><h4 id="8、进入风格选择页面，根据自己的喜好进行选择即可。这里如果不想自定义设置，可以点击Skip-All-and-Set-Defaults直接跳过所有设置，采用默认设置。"><a href="#8、进入风格选择页面，根据自己的喜好进行选择即可。这里如果不想自定义设置，可以点击Skip-All-and-Set-Defaults直接跳过所有设置，采用默认设置。" class="headerlink" title="8、进入风格选择页面，根据自己的喜好进行选择即可。这里如果不想自定义设置，可以点击Skip All and Set Defaults直接跳过所有设置，采用默认设置。"></a>8、进入风格选择页面，根据自己的喜好进行选择即可。这里如果不想自定义设置，可以点击Skip All and Set Defaults直接跳过所有设置，采用默认设置。</h4><p><img src="http://upload-images.jianshu.io/upload_images/5330898-a897ee026eebf2fe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Customize IntelliJ IDEA_008.png"></p>
+<h4 id="9、选择For-all-users，防止后续其他用户无法使用该工具进行开发。"><a href="#9、选择For-all-users，防止后续其他用户无法使用该工具进行开发。" class="headerlink" title="9、选择For all users，防止后续其他用户无法使用该工具进行开发。"></a>9、选择For all users，防止后续其他用户无法使用该工具进行开发。</h4><p><img src="http://upload-images.jianshu.io/upload_images/5330898-b0f9a691de720443.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Customize IntelliJ IDEA_011.png"></p>
+<h4 id="10、让其创建启动脚本和命令行工具，后续可通过命令的方式直接进行项目文件编辑修改。这里根据自己需要进行选择即可。"><a href="#10、让其创建启动脚本和命令行工具，后续可通过命令的方式直接进行项目文件编辑修改。这里根据自己需要进行选择即可。" class="headerlink" title="10、让其创建启动脚本和命令行工具，后续可通过命令的方式直接进行项目文件编辑修改。这里根据自己需要进行选择即可。"></a>10、让其创建启动脚本和命令行工具，后续可通过命令的方式直接进行项目文件编辑修改。这里根据自己需要进行选择即可。</h4><p><img src="http://upload-images.jianshu.io/upload_images/5330898-4de3fa799c18170b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Customize IntelliJ IDEA_012.png"></p>
+<h4 id="11、选择需要的插件，这里采用的是默认安装，后续如有需要的到时再进行安装即可。"><a href="#11、选择需要的插件，这里采用的是默认安装，后续如有需要的到时再进行安装即可。" class="headerlink" title="11、选择需要的插件，这里采用的是默认安装，后续如有需要的到时再进行安装即可。"></a>11、选择需要的插件，这里采用的是默认安装，后续如有需要的到时再进行安装即可。</h4><p><img src="http://upload-images.jianshu.io/upload_images/5330898-742b872a712cbd1d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Customize IntelliJ IDEA_013.png"></p>
+<h4 id="12、其他工具选择性安装即可。建议别安装ideavim工具，不然打开的文件都默认开启了insert。"><a href="#12、其他工具选择性安装即可。建议别安装ideavim工具，不然打开的文件都默认开启了insert。" class="headerlink" title="12、其他工具选择性安装即可。建议别安装ideavim工具，不然打开的文件都默认开启了insert。"></a>12、其他工具选择性安装即可。建议别安装ideavim工具，不然打开的文件都默认开启了insert。</h4><p><img src="http://upload-images.jianshu.io/upload_images/5330898-746af178d538429b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Customize IntelliJ IDEA_014.png"></p>
+<h4 id="13、进入启动项目创建页面，这样整个安装过程就完成了。"><a href="#13、进入启动项目创建页面，这样整个安装过程就完成了。" class="headerlink" title="13、进入启动项目创建页面，这样整个安装过程就完成了。"></a>13、进入启动项目创建页面，这样整个安装过程就完成了。</h4><p><img src="http://upload-images.jianshu.io/upload_images/5330898-b5aaabbf34688005.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Welcome to IntelliJ IDEA_015.png"></p>
+<h6 id="如有安装上面的问题，欢迎在下面进行留言交流，编写不对的地方也望各位给予指出。谢谢。"><a href="#如有安装上面的问题，欢迎在下面进行留言交流，编写不对的地方也望各位给予指出。谢谢。" class="headerlink" title="如有安装上面的问题，欢迎在下面进行留言交流，编写不对的地方也望各位给予指出。谢谢。"></a>如有安装上面的问题，欢迎在下面进行留言交流，编写不对的地方也望各位给予指出。谢谢。</h6>
+    </div>
+    
+        <div class="reward" ontouchstart>
+    <div class="reward-wrap">赏
+        <div class="reward-box">
+            
+                <span class="reward-type">
+                    <img class="alipay" src="/img/alipay.jpg"><b>支付宝打赏</b>
+                </span>
+            
+            
+                <span class="reward-type">
+                    <img class="wechat" src="/img/wepay.jpg"><b>微信打赏</b>
+                </span>
+            
+        </div>
+    </div>
+    <p class="reward-tip">赞赏是不耍流氓的鼓励</p>
+</div>
+
+
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+        <a href="/2019/04/18/IDEA-IntelliJ-SVN/" class="next-post btn btn-default" title="在IntelliJ IDEA上面进行使用svn进行版本管理">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">在IntelliJ IDEA上面进行使用svn进行版本管理</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+	
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+            appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh_CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">Table of Contents</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-6"><a class="toc-link" href="#一般情况下，使用-Linux-mint-的我们都是在用它的图形界面，而安装IntelliJ-IDEA传统思维模式是直接打开浏览器，进行下载即可。但就是这么一个简单的流程，就导致了下载文件损坏的问题。下面是我整理的安装步骤，如有问题，欢迎给予指出。"><span class="toc-text">一般情况下，使用 Linux mint 的我们都是在用它的图形界面，而安装IntelliJ IDEA传统思维模式是直接打开浏览器，进行下载即可。但就是这么一个简单的流程，就导致了下载文件损坏的问题。下面是我整理的安装步骤，如有问题，欢迎给予指出。</span></a></li></ol><li class="toc-item toc-level-4"><a class="toc-link" href="#1、Ctrl-Alt-T打开终端，使用命令"><span class="toc-text">1、Ctrl+Alt+T打开终端，使用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#开始下载。"><span class="toc-text">开始下载。</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、下载完成后，进行效验文件的完成性，使用命令："><span class="toc-text">2、下载完成后，进行效验文件的完成性，使用命令：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#官方值查询地址-https-download-jetbrains-com-idea-ideaIU-2017-2-4-tar-gz-sha256"><span class="toc-text">官方值查询地址 https://download.jetbrains.com/idea/ideaIU-2017.2.4.tar.gz.sha256</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#其值为："><span class="toc-text">其值为：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#生成的值与其官网的进行对比。"><span class="toc-text">生成的值与其官网的进行对比。</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#这时对比发现，值一致则说明下载文件没有问题。"><span class="toc-text">这时对比发现，值一致则说明下载文件没有问题。</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#如果生成的值为以下值或其他值："><span class="toc-text">如果生成的值为以下值或其他值：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#生成的值与官方提供的值不一样，说明其下载的包存在问题，是损坏的。需要重新进行下载。"><span class="toc-text">生成的值与官方提供的值不一样，说明其下载的包存在问题，是损坏的。需要重新进行下载。</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、成功拼配后，使用gunzip进行第一次解压"><span class="toc-text">3、成功拼配后，使用gunzip进行第一次解压:</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#解压出来的文件为：ideaIU-2017-2-4-tar"><span class="toc-text">解压出来的文件为：ideaIU-2017.2.4.tar</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、开始第二次解压，使用tar命令："><span class="toc-text">4、开始第二次解压，使用tar命令：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#解压出来的文件夹为：idea-IU-172-4155-36"><span class="toc-text">解压出来的文件夹为：idea-IU-172.4155.36</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、开始进行安装，进入idea-IU-172-4155-36目录的bin文件夹中。"><span class="toc-text">5、开始进行安装，进入idea-IU-172.4155.36目录的bin文件夹中。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、出来安装页面，如果之前有配置文件，则选择其之前的配置文件，如果没有则按照下图进行选择即可。"><span class="toc-text">6、出来安装页面，如果之前有配置文件，则选择其之前的配置文件，如果没有则按照下图进行选择即可。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7、点击Accept同意其协议"><span class="toc-text">7、点击Accept同意其协议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8、进入激活页面，根据自己实际情况进行激活，请支持正版版权，这里为了演示，采用目前网上主流的破解方式进行。按下图进行选择。"><span class="toc-text">8、进入激活页面，根据自己实际情况进行激活，请支持正版版权，这里为了演示，采用目前网上主流的破解方式进行。按下图进行选择。</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#在其地址框中输入以下地址："><span class="toc-text">在其地址框中输入以下地址：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#点击Activate进行激活。"><span class="toc-text">点击Activate进行激活。</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8、进入风格选择页面，根据自己的喜好进行选择即可。这里如果不想自定义设置，可以点击Skip-All-and-Set-Defaults直接跳过所有设置，采用默认设置。"><span class="toc-text">8、进入风格选择页面，根据自己的喜好进行选择即可。这里如果不想自定义设置，可以点击Skip All and Set Defaults直接跳过所有设置，采用默认设置。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9、选择For-all-users，防止后续其他用户无法使用该工具进行开发。"><span class="toc-text">9、选择For all users，防止后续其他用户无法使用该工具进行开发。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10、让其创建启动脚本和命令行工具，后续可通过命令的方式直接进行项目文件编辑修改。这里根据自己需要进行选择即可。"><span class="toc-text">10、让其创建启动脚本和命令行工具，后续可通过命令的方式直接进行项目文件编辑修改。这里根据自己需要进行选择即可。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11、选择需要的插件，这里采用的是默认安装，后续如有需要的到时再进行安装即可。"><span class="toc-text">11、选择需要的插件，这里采用的是默认安装，后续如有需要的到时再进行安装即可。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#12、其他工具选择性安装即可。建议别安装ideavim工具，不然打开的文件都默认开启了insert。"><span class="toc-text">12、其他工具选择性安装即可。建议别安装ideavim工具，不然打开的文件都默认开启了insert。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#13、进入启动项目创建页面，这样整个安装过程就完成了。"><span class="toc-text">13、进入启动项目创建页面，这样整个安装过程就完成了。</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#如有安装上面的问题，欢迎在下面进行留言交流，编写不对的地方也望各位给予指出。谢谢。"><span class="toc-text">如有安装上面的问题，欢迎在下面进行留言交流，编写不对的地方也望各位给予指出。谢谢。</span></a></li></ol>
+        
+    </li></div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>
